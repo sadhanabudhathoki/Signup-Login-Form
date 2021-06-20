@@ -41,6 +41,12 @@ public class Login extends AppCompatActivity {
                 finish();
             }
         });
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String fullname, username, password, email;
+                username = String.valueOf(textInputEditTextUsername.getText());
+                password = String.valueOf(textInputEditTextPassword.getText());
 
         if (!username.equals("") && !password.equals("")) {
             //Start ProgressBar first (Set visibility VISIBLE)
@@ -64,15 +70,15 @@ public class Login extends AppCompatActivity {
                     PutData putData = new PutData("http:// 192.168.1.65/loginRegister/login.php", "POST", field, data);
                     if (putData.startPut()) {
                         if (putData.onComplete()) {
-                            progressBar.setVisibility(GONE);
+                            progressBar.setVisibility(View.GONE);
                             String result = putData.getResult();
                             if (result.equals("Login Success")) {
                                 Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                                 finish();
-
-                            } else {
+                            }
+                            else {
                                 Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -82,8 +88,6 @@ public class Login extends AppCompatActivity {
             });
         }
         else{
-
-
             Toast.makeText(getApplicationContext(),text:"All fields are required",Toast.LENGTH_SHORT).show();
         }
      }

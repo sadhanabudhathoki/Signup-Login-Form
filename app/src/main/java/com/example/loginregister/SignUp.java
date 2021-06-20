@@ -49,7 +49,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String fullname, username, password, email;
+               final String fullname, username, password, email;
                 fullname = String.valueOf(textInputEditTextFullname.getText());
                 username = String.valueOf(textInputEditTextUsername.getText());
                 password = String.valueOf(textInputEditTextPassword.getText());
@@ -70,7 +70,7 @@ public class SignUp extends AppCompatActivity {
                             field[2] = "password";
                             field[3] = "email";
                             //Creating array for data
-                            String[] data = new String[2];
+                            String[] data = new String[4];
                             data[0] = fullname;
                             data[1] = username;
                             data[2] = password;
@@ -81,25 +81,24 @@ public class SignUp extends AppCompatActivity {
                                 if (putData.onComplete()) {
                                     progressBar.setVisibility(GONE);
                                     String result = putData.getResult();
+
                                     if (result.equals("Sign Up Success")) {
                                         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(getApplicationContext(), Login.class);
                                         startActivity(intent);
                                         finish();
-
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                                    }
+                                    else{
+                                       Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
                                     }
                                 }
-                                //End Write and Read data with URL
                             }
+                                //End Write and Read data with URL
                         }
                     });
                 }
                 else{
-
-
-                    Toast.makeText(getApplicationContext(), text:"All fields are required",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), text:"All fields required", Toast.LENGTH_SHORT).show();
                 }
             }
         });

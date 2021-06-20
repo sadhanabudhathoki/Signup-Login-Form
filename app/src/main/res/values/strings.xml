@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">LoginRegister</string>
-    <string name="username">username</string>
-    <string name="password">password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
 
-    <string name="usernames">Username</string>
+    <string name="usernames">Usernames</string>
     <string name="signup">SignUp</string>
-    <string name="fullname">fullname</string>
+    <string name="fullname">Fullname</string>
     <string name="email">Email</string>
 
     <string name="loginhere">Already have an account? <u>login</u></string>
